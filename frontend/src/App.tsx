@@ -329,7 +329,7 @@ const Projects: React.FC = () => {
       title: "Portfolio Personale",
       description: "Questo stesso sito: portfolio full-stack con React, Vite e Django. Include form di contatto con backend API, design responsive e animazioni CSS.",
       tags: ["React", "TypeScript", "Vite", "Django"],
-      github: "https://github.com/niccolopiccioli",
+      github: "https://github.com/niccolopiccioli/site-niccolopiccioli",
       demo: null,
     },
   ];
