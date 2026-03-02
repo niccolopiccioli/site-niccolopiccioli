@@ -81,10 +81,11 @@ def submit_contact(request):
         # Database insertion
         contact = ContactMessage.objects.create(name=name, email=email, message=message)
 
-        # Send email notification
-        try:
-            email_subject = f"Nuovo messaggio da {name} - Portfolio"
-            email_message = f"""
+        # Send email notification (only if email is configured)
+        if settings.EMAIL_HOST_USER and settings.EMAIL_HOST_PASSWORD:
+            try:
+                email_subject = f"Nuovo messaggio da {name} - Portfolio"
+                email_message = f"""
 Nuovo messaggio dal form di contatto:
 
 Nome: {name}
@@ -93,16 +94,15 @@ Email: {email}
 Messaggio:
 {message}
 """
-            send_mail(
-                subject=email_subject,
-                message=email_message,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=["niccolopiccioli68@gmail.com"],
-                fail_silently=False,
-            )
-        except Exception as e:
-            # Log error but don't fail the request
-            print(f"Email send error: {e}")
+                send_mail(
+                    subject=email_subject,
+                    message=email_message,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=["niccolopiccioli68@gmail.com"],
+                    fail_silently=True,
+                )
+            except Exception as e:
+                print(f"Email send error: {e}")
 
         return JsonResponse({"success": "Messaggio inviato con successo!"}, status=201)
 
