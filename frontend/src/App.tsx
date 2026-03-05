@@ -601,14 +601,16 @@ const Footer: React.FC = () => {
         <div className="footer-main-info">
           <span className="footer-copy">{t('footer.copy')}</span>
           <div className="footer-links">
+            <div className="footer-social-row">
+              <a href="https://github.com/niccolopiccioli" target="_blank" rel="noopener noreferrer" className="footer-social">
+                <FaGithub size={18} /> GitHub
+              </a>
+              <a href="https://linkedin.com/in/niccolopiccioli" target="_blank" rel="noopener noreferrer" className="footer-social">
+                <FaLinkedin size={18} /> LinkedIn
+              </a>
+            </div>
             <a href="mailto:niccolopiccioli68@gmail.com" className="footer-social">
               niccolopiccioli68@gmail.com
-            </a>
-            <a href="https://github.com/niccolopiccioli" target="_blank" rel="noopener noreferrer" className="footer-social">
-              <FaGithub size={18} /> GitHub
-            </a>
-            <a href="https://linkedin.com/in/niccolopiccioli" target="_blank" rel="noopener noreferrer" className="footer-social">
-              <FaLinkedin size={18} /> LinkedIn
             </a>
           </div>
         </div>
