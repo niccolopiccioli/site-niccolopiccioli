@@ -327,7 +327,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`navbar${scrolled ? ' navbar-scrolled' : ''}`}>
       <div className="navbar-inner">
-        <div className="lang-switcher navbar-only">
+        <div className="lang-switcher">
           <button
             className={`lang-btn ${lang === 'it' ? 'active' : ''}`}
             onClick={() => setLang('it')}
@@ -611,16 +611,6 @@ const Footer: React.FC = () => {
               <FaLinkedin size={18} /> LinkedIn
             </a>
           </div>
-        </div>
-        <div className="footer-lang-selector">
-          <button
-            className={`lang-btn ${lang === 'it' ? 'active' : ''}`}
-            onClick={() => setLang('it')}
-          >Italiano</button>
-          <button
-            className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
-            onClick={() => setLang('en')}
-          >English</button>
         </div>
       </div>
     </footer>
