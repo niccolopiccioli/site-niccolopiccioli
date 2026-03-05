@@ -327,7 +327,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`navbar${scrolled ? ' navbar-scrolled' : ''}`}>
       <div className="navbar-inner">
-        <div className="lang-switcher">
+        <div className="lang-switcher navbar-only">
           <button
             className={`lang-btn ${lang === 'it' ? 'active' : ''}`}
             onClick={() => setLang('it')}
@@ -594,21 +594,33 @@ const Contact: React.FC = () => {
 };
 
 const Footer: React.FC = () => {
-  const { t } = useTranslation();
+  const { lang, setLang, t } = useTranslation();
   return (
     <footer>
       <div className="footer-inner">
-        <span className="footer-copy">{t('footer.copy')}</span>
-        <div className="footer-links">
-          <a href="mailto:niccolopiccioli68@gmail.com" className="footer-social">
-            niccolopiccioli68@gmail.com
-          </a>
-          <a href="https://github.com/niccolopiccioli" target="_blank" rel="noopener noreferrer" className="footer-social">
-            <FaGithub size={18} /> GitHub
-          </a>
-          <a href="https://linkedin.com/in/niccolopiccioli" target="_blank" rel="noopener noreferrer" className="footer-social">
-            <FaLinkedin size={18} /> LinkedIn
-          </a>
+        <div className="footer-main-info">
+          <span className="footer-copy">{t('footer.copy')}</span>
+          <div className="footer-links">
+            <a href="mailto:niccolopiccioli68@gmail.com" className="footer-social">
+              niccolopiccioli68@gmail.com
+            </a>
+            <a href="https://github.com/niccolopiccioli" target="_blank" rel="noopener noreferrer" className="footer-social">
+              <FaGithub size={18} /> GitHub
+            </a>
+            <a href="https://linkedin.com/in/niccolopiccioli" target="_blank" rel="noopener noreferrer" className="footer-social">
+              <FaLinkedin size={18} /> LinkedIn
+            </a>
+          </div>
+        </div>
+        <div className="footer-lang-selector">
+          <button
+            className={`lang-btn ${lang === 'it' ? 'active' : ''}`}
+            onClick={() => setLang('it')}
+          >Italiano</button>
+          <button
+            className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
+            onClick={() => setLang('en')}
+          >English</button>
         </div>
       </div>
     </footer>
