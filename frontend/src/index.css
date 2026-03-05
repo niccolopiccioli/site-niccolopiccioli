@@ -92,8 +92,7 @@ body {
   .lang-switcher {
     position: absolute;
     top: calc(var(--navbar-height) + 0.6rem);
-    left: 50%;
-    transform: translateX(-50%);
+    left: 1rem;
     border-radius: 980px;
     justify-content: center;
     gap: 0.5rem;
@@ -107,25 +106,26 @@ body {
     width: max-content;
     transition: opacity 0.4s ease, transform 0.4s ease, top 0.4s ease;
     opacity: 1;
+    transform: none;
   }
 
   .navbar-scrolled .lang-switcher {
     opacity: 0;
     top: var(--navbar-height);
     pointer-events: none;
-    transform: translateX(-50%) translateY(-10px);
+    transform: translateY(-10px);
   }
 }
 
 @keyframes slideDownFade {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(-10px);
+    transform: translateY(-10px);
   }
 
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
 }
 
