@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './index.css';
+import emailjs from '@emailjs/browser';
+
+// Initialize EmailJS globally
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "");
+
 import {
   FaReact, FaAngular, FaPython, FaJava, FaDocker, FaDatabase,
   FaGithub, FaLinkedin, FaMusic, FaHeadphones, FaNodeJs, FaBrain,
@@ -327,8 +332,8 @@ const Projects: React.FC = () => {
     },
     {
       title: "Portfolio Personale",
-      description: "Questo stesso sito: portfolio full-stack con React, Vite e Django. Include form di contatto con backend API, design responsive e animazioni CSS.",
-      tags: ["React", "TypeScript", "Vite", "Django"],
+      description: "Questo stesso sito: portfolio con React, Vite e Firebase. Include form di contatto via EmailJS, design responsive e animazioni CSS.",
+      tags: ["React", "TypeScript", "Vite", "Firebase", "EmailJS"],
       github: "https://github.com/niccolopiccioli/site-niccolopiccioli",
       demo: null,
     },
@@ -417,21 +422,48 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    console.log("DEBUG - Invio con Service ID:", serviceId);
+
+    console.log("EmailJS Config Check:", {
+      service: serviceId ? "Present" : "Missing",
+      template: templateId ? "Present" : "Missing",
+      key: publicKey ? "Present" : "Missing"
+    });
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("Configurazione incompleta (.env)");
+      return;
+    }
+
+    setStatus('Invio in corso...');
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact/`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      const result = await response.json();
-      if (response.ok) {
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          from_name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        publicKey
+      );
+
+      if (response.status === 200) {
         setStatus('Messaggio inviato con successo!');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        setStatus(result.error || 'Errore durante l\'invio.');
+        throw response;
       }
-    } catch (error) {
-      setStatus('Errore di connessione al server.');
+    } catch (error: any) {
+      console.error("ERRORE DETTAGLIATO:", error);
+      const errorMsg = error?.text || error?.message || "Errore sconosciuto";
+      setStatus(`Errore: ${errorMsg}`);
     }
   };
 
@@ -441,15 +473,15 @@ const Contact: React.FC = () => {
       <form className="contact-form contact-card" onSubmit={handleSubmit}>
         <input
           type="text" placeholder="Il tuo nome" required
-          value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})}
+          value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })}
         />
         <input
           type="email" placeholder="La tua email" required
-          value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})}
+          value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })}
         />
         <textarea
           placeholder="Il tuo messaggio" rows={5} required
-          value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})}
+          value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })}
         ></textarea>
         <button type="submit" className="btn btn-primary">Invia Messaggio</button>
         {status && <p style={{ marginTop: '1rem', color: 'var(--accent-blue)' }}>{status}</p>}
