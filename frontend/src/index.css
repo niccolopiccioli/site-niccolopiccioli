@@ -66,8 +66,34 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.navbar-centered {
-  justify-content: center;
+.navbar-centered-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.lang-btn:hover {
+  color: var(--text-main);
+}
+.lang-btn.active {
+  color: var(--accent-blue);
+  background: rgba(0, 113, 227, 0.08);
 }
 .navbar-links {
   list-style: none;
