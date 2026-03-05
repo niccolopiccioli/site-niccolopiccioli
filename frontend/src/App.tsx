@@ -8,12 +8,13 @@ emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "");
 import {
   FaReact, FaAngular, FaPython, FaJava, FaDocker, FaDatabase,
   FaGithub, FaLinkedin, FaMusic, FaHeadphones, FaNodeJs, FaBrain,
-  FaPlane, FaMapMarkedAlt
+  FaPlane, FaMapMarkedAlt, FaSun, FaMoon
 } from 'react-icons/fa';
 import { SiTypescript, SiDjango, SiNextdotjs, SiTailwindcss, SiGraphql, SiPostgresql } from 'react-icons/si';
 import { MdCloud, MdSecurity } from 'react-icons/md';
 
 type Language = 'it' | 'en';
+type Theme = 'light' | 'dark';
 
 interface LanguageContextType {
   lang: Language;
@@ -296,9 +297,22 @@ function useFadeIn() {
 }
 
 const App: React.FC = () => {
+  const [theme, setTheme] = useState<Theme>(() => {
+    return (localStorage.getItem('theme') as Theme) || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
   return (
     <LanguageProvider>
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero />
       <main className="container">
         <About />
@@ -313,7 +327,12 @@ const App: React.FC = () => {
   );
 };
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  theme: Theme;
+  toggleTheme: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const active = useActiveSection();
   const [scrolled, setScrolled] = useState(false);
   const { lang, setLang, t } = useTranslation();
@@ -337,6 +356,13 @@ const Navbar: React.FC = () => {
             onClick={() => setLang('en')}
           >EN</button>
         </div>
+
+        <div className="theme-switcher">
+          <button className="theme-btn" onClick={toggleTheme}>
+            {theme === 'light' ? <FaMoon size={16} /> : <FaSun size={16} />}
+          </button>
+        </div>
+
         <div className="navbar-centered-links">
           <ul className="navbar-links">
             {SECTIONS.map(({ id, key }) => (
@@ -350,7 +376,7 @@ const Navbar: React.FC = () => {
             ))}
           </ul>
         </div>
-        <div style={{ width: '60px' }}></div> {/* Spacer for symmetry */}
+        <div style={{ width: '60px' }} className="navbar-spacer"></div> {/* Spacer for symmetry */}
       </div>
     </nav>
   );
