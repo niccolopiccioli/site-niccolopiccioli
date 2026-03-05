@@ -83,14 +83,6 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
-.navbar {
-  border-bottom-color: rgba(0, 0, 0, 0.1);
-}
-
-.navbar-scrolled {
-  background: rgba(255, 255, 255, 0.95);
-}
-
 .navbar-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -138,7 +130,9 @@ body {
 
   .theme-switcher {
     right: 1rem;
-    padding: 0.4rem;
+    padding: 0.4rem 0.6rem;
+    gap: 0.5rem;
+    display: flex;
   }
 
   .navbar-scrolled .lang-switcher,
@@ -150,22 +144,33 @@ body {
   }
 }
 
+.theme-switcher {
+  display: flex;
+}
+
 .theme-btn {
   background: none;
-  border: none;
-  color: var(--text-main);
+  border: 1px solid transparent;
+  color: var(--text-muted);
   cursor: pointer;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .theme-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-main);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.theme-btn.active {
+  color: var(--accent-blue);
+  background: rgba(0, 113, 227, 0.08);
+  border-color: rgba(0, 113, 227, 0.15);
 }
 
 [data-theme='dark'] .theme-btn:hover {
@@ -174,8 +179,9 @@ body {
 
 @media (min-width: 769px) {
   .theme-switcher {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     order: 3;
+    gap: 0.2rem;
   }
 }
 

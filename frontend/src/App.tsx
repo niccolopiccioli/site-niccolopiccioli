@@ -312,7 +312,7 @@ const App: React.FC = () => {
 
   return (
     <LanguageProvider>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <main className="container">
         <About />
@@ -329,10 +329,10 @@ const App: React.FC = () => {
 
 interface NavbarProps {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (t: Theme) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
   const active = useActiveSection();
   const [scrolled, setScrolled] = useState(false);
   const { lang, setLang, t } = useTranslation();
@@ -358,8 +358,17 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         </div>
 
         <div className="theme-switcher">
-          <button className="theme-btn" onClick={toggleTheme}>
-            {theme === 'light' ? <FaMoon size={16} /> : <FaSun size={16} />}
+          <button
+            className={`theme-btn ${theme === 'light' ? 'active' : ''}`}
+            onClick={() => setTheme('light')}
+          >
+            <FaSun size={14} />
+          </button>
+          <button
+            className={`theme-btn ${theme === 'dark' ? 'active' : ''}`}
+            onClick={() => setTheme('dark')}
+          >
+            <FaMoon size={14} />
           </button>
         </div>
 
