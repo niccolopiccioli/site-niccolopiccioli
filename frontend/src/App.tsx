@@ -61,7 +61,7 @@ const TRANSLATIONS: Record<Language, any> = {
     experience: {
       title: 'Esperienza e Formazione',
       items: [
-        { date: "2024 - 2026", title: "Software Developer For Web Application", desc: "ITS Academy Prodigi. Focus su tecnologie frontend, architetture backend e sviluppo di sistemi moderni." },
+        { date: "2025 - 2027", title: "Software Developer For Web Application", desc: "ITS Academy Prodigi. Focus su tecnologie frontend, architetture backend e sviluppo di sistemi moderni." },
         { date: "Nov 2025 - Lug 2026", title: "Runner / Addetto Magazzino", desc: "Foot Locker Italy (Firenze). Un'esperienza fondamentale che ha affinato la mia velocita operativa, l'efficienza sotto pressione e le dinamiche di lavoro di squadra." },
         { date: "2020 - 2025", title: "Diploma in Sistemi Informativi Aziendali", desc: "IISS Valdarno." },
       ]
@@ -73,7 +73,7 @@ const TRANSLATIONS: Record<Language, any> = {
         { title: "E-commerce Dashboard", desc: "Pannello di amministrazione per negozio online con analytics, gestione ordini, inventario prodotti e grafici di vendita interattivi.", tags: ["React", "Chart.js", "Node.js", "MongoDB", "Tailwind CSS"] },
         { title: "API REST per Blog", desc: "Backend scalabile per una piattaforma di blogging con autenticazione, CRUD articoli, sistema commenti, paginazione e ricerca full-text.", tags: ["Python", "Django", "PostgreSQL", "REST API", "Docker"] },
         { title: "Weather App", desc: "Applicazione meteo con geolocalizzazione automatica, previsioni a 7 giorni, visualizzazioni animate e ricerca citta. Dati da OpenWeatherMap API.", tags: ["React", "TypeScript", "OpenWeatherMap API", "CSS Animations"] },
-        { title: "Portfolio Generator", desc: "Tool web che consente di creare portfolio statici personalizzati scegliendo template, colori e contenuti, con export HTML/CSS pronto al deploy.", tags: ["React", "Node.js", "Express", "HTML/CSS", "File System API"] },
+        { title: "Site Generator", desc: "Tool web che consente di creare siti web statici personalizzati scegliendo template, colori e contenuti, con export HTML/CSS pronto al deploy.", tags: ["React", "Node.js", "Express", "HTML/CSS", "File System API"] },
         { title: "Real-time Chat App", desc: "Applicazione di chat con WebSocket, rooms multiple, indicatore di digitazione, notifiche push e storico messaggi persistente su database.", tags: ["React", "Django Channels", "WebSocket", "Redis", "PostgreSQL"] },
         { title: "Portfolio Personale", desc: "Questo stesso sito: portfolio con React, Vite e Firebase. Include form di contatto via EmailJS, design responsive e animazioni CSS.", tags: ["React", "TypeScript", "Vite", "Firebase", "EmailJS"] },
       ]
@@ -134,7 +134,7 @@ const TRANSLATIONS: Record<Language, any> = {
     experience: {
       title: 'Experience and Education',
       items: [
-        { date: "2024 - 2026", title: "Software Developer For Web Application", desc: "ITS Academy Prodigi. Focus on frontend technologies, backend architectures, and modern systems development." },
+        { date: "2025 - 2027", title: "Software Developer For Web Application", desc: "ITS Academy Prodigi. Focus on frontend technologies, backend architectures, and modern systems development." },
         { date: "Nov 2025 - Jul 2026", title: "Runner / Warehouse Assistant", desc: "Foot Locker Italy (Florence). A foundational experience that sharpened my operational speed, efficiency under pressure, and teamwork dynamics." },
         { date: "2020 - 2025", title: "Business Information Systems Diploma", desc: "IISS Valdarno." },
       ]
@@ -146,7 +146,7 @@ const TRANSLATIONS: Record<Language, any> = {
         { title: "E-commerce Dashboard", desc: "Admin panel for an online store with analytics, order management, product inventory, and interactive sales charts.", tags: ["React", "Chart.js", "Node.js", "MongoDB", "Tailwind CSS"] },
         { title: "REST API for Blog", desc: "Scalable backend for a blogging platform with authentication, article CRUD, comment system, pagination, and full-text search.", tags: ["Python", "Django", "PostgreSQL", "REST API", "Docker"] },
         { title: "Weather App", desc: "Weather application with automatic geolocation, 7-day forecasts, animated visualizations, and city search. Powered by OpenWeatherMap API.", tags: ["React", "TypeScript", "OpenWeatherMap API", "CSS Animations"] },
-        { title: "Portfolio Generator", desc: "Web tool that allows creating personalized static portfolios by choosing templates, colors, and content, with ready-to-deploy HTML/CSS export.", tags: ["React", "Node.js", "Express", "HTML/CSS", "File System API"] },
+        { title: "Site Generator", desc: "Web tool that allows creating personalized static websites by choosing templates, colors, and content, with ready-to-deploy HTML/CSS export.", tags: ["React", "Node.js", "Express", "HTML/CSS", "File System API"] },
         { title: "Real-time Chat App", desc: "Chat application with WebSockets, multiple rooms, typing indicator, push notifications, and persistent message history on a database.", tags: ["React", "Django Channels", "WebSocket", "Redis", "PostgreSQL"] },
         { title: "Personal Portfolio", desc: "This very site: portfolio with React, Vite, and Firebase. Includes contact form via EmailJS, responsive design, and CSS animations.", tags: ["React", "TypeScript", "Vite", "Firebase", "EmailJS"] },
       ]
@@ -477,10 +477,10 @@ const Projects: React.FC = () => {
   const projects = t('projects.list');
 
   const githubLinks = [
-    "#", "#", "#", "#", "#", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
+    "https://github.com/niccolopiccioli/taskflow-pro", "#", "#", "#", "#", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
   ];
   const demoLinks = [
-    "#", "#", null, "#", "#", null, null
+    "https://taskflow-pro-murex.vercel.app", "#", null, "#", "#", null, null
   ];
 
   const renderCard = (project: any, index: number) => (
