@@ -477,10 +477,10 @@ const Projects: React.FC = () => {
   const projects = t('projects.list');
 
   const githubLinks = [
-    "https://github.com/niccolopiccioli/taskflow-pro", "#", "#", "#", "#", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
+    "https://github.com/niccolopiccioli/taskflow-pro", "#", "#", "#", "https://github.com/niccolopiccioli/ready-layout", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
   ];
   const demoLinks = [
-    "https://taskflow-pro-murex.vercel.app", "#", null, "#", "#", null, null
+    "https://taskflow-pro-murex.vercel.app", "#", null, "#", "https://site-generator-eight.vercel.app", null, null
   ];
 
   const renderCard = (project: any, index: number) => (
