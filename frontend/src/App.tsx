@@ -71,7 +71,7 @@ const TRANSLATIONS: Record<Language, any> = {
       list: [
         { title: "Task Manager SaaS", desc: "Applicazione web per la gestione dei task in team, con board Kanban, assegnazione attivita e notifiche in tempo reale. Autenticazione JWT e ruoli utente.", tags: ["React", "TypeScript", "Django REST", "PostgreSQL", "JWT"] },
         { title: "E-commerce Dashboard", desc: "Pannello di amministrazione per negozio online con analytics, gestione ordini, inventario prodotti e grafici di vendita interattivi.", tags: ["React", "Chart.js", "Node.js", "MongoDB", "Tailwind CSS"] },
-        { title: "API REST per Blog", desc: "Backend scalabile per una piattaforma di blogging con autenticazione, CRUD articoli, sistema commenti, paginazione e ricerca full-text.", tags: ["Python", "Django", "PostgreSQL", "REST API", "Docker"] },
+        { title: "Sweet Lab — Luxury Bakery", desc: "Sito marketing multilingue (IT/EN/FR/ES) per una pasticceria di lusso milanese, con animazioni GSAP, scroll fluido Lenis e design premium curato nei dettagli.", tags: ["Next.js", "React", "Tailwind CSS", "next-intl", "GSAP", "Framer Motion"] },
         { title: "Weather App", desc: "Applicazione meteo con geolocalizzazione automatica, previsioni a 7 giorni, visualizzazioni animate e ricerca citta. Dati da OpenWeatherMap API.", tags: ["React", "TypeScript", "OpenWeatherMap API", "CSS Animations"] },
         { title: "Site Generator", desc: "Tool web che consente di creare siti web statici personalizzati scegliendo template, colori e contenuti, con export HTML/CSS pronto al deploy.", tags: ["React", "Node.js", "Express", "HTML/CSS", "File System API"] },
         { title: "Real-time Chat App", desc: "Applicazione di chat con WebSocket, rooms multiple, indicatore di digitazione, notifiche push e storico messaggi persistente su database.", tags: ["React", "Django Channels", "WebSocket", "Redis", "PostgreSQL"] },
@@ -144,7 +144,7 @@ const TRANSLATIONS: Record<Language, any> = {
       list: [
         { title: "Task Manager SaaS", desc: "Web application for team task management, featuring Kanban boards, task assignment, and real-time notifications. JWT authentication and user roles.", tags: ["React", "TypeScript", "Django REST", "PostgreSQL", "JWT"] },
         { title: "E-commerce Dashboard", desc: "Admin panel for an online store with analytics, order management, product inventory, and interactive sales charts.", tags: ["React", "Chart.js", "Node.js", "MongoDB", "Tailwind CSS"] },
-        { title: "REST API for Blog", desc: "Scalable backend for a blogging platform with authentication, article CRUD, comment system, pagination, and full-text search.", tags: ["Python", "Django", "PostgreSQL", "REST API", "Docker"] },
+        { title: "Sweet Lab — Luxury Bakery", desc: "Multilingual marketing site (IT/EN/FR/ES) for a fictional luxury patisserie in Milan, featuring GSAP animations, Lenis smooth scrolling, and a premium, detail-driven design.", tags: ["Next.js", "React", "Tailwind CSS", "next-intl", "GSAP", "Framer Motion"] },
         { title: "Weather App", desc: "Weather application with automatic geolocation, 7-day forecasts, animated visualizations, and city search. Powered by OpenWeatherMap API.", tags: ["React", "TypeScript", "OpenWeatherMap API", "CSS Animations"] },
         { title: "Site Generator", desc: "Web tool that allows creating personalized static websites by choosing templates, colors, and content, with ready-to-deploy HTML/CSS export.", tags: ["React", "Node.js", "Express", "HTML/CSS", "File System API"] },
         { title: "Real-time Chat App", desc: "Chat application with WebSockets, multiple rooms, typing indicator, push notifications, and persistent message history on a database.", tags: ["React", "Django Channels", "WebSocket", "Redis", "PostgreSQL"] },
@@ -477,10 +477,10 @@ const Projects: React.FC = () => {
   const projects = t('projects.list');
 
   const githubLinks = [
-    "https://github.com/niccolopiccioli/taskflow-pro", "#", "#", "#", "https://github.com/niccolopiccioli/ready-layout", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
+    "https://github.com/niccolopiccioli/taskflow-pro", "#", "https://github.com/niccolopiccioli/luxury-bakery", "#", "https://github.com/niccolopiccioli/ready-layout", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
   ];
   const demoLinks = [
-    "https://taskflow-pro-murex.vercel.app", "#", null, "#", "https://site-generator-eight.vercel.app", null, null
+    "https://taskflow-pro-murex.vercel.app", "#", "https://luxury-bakery.vercel.app", "#", "https://site-generator-eight.vercel.app", null, null
   ];
 
   const renderCard = (project: any, index: number) => (
