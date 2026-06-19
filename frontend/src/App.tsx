@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
 import './index.css';
 import emailjs from '@emailjs/browser';
+import { AmbientBackground, CursorGlow, ScrollProgress } from './effects/AmbientEffects';
 
 // Initialize EmailJS globally
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "");
@@ -312,6 +313,9 @@ const App: React.FC = () => {
 
   return (
     <LanguageProvider>
+      <AmbientBackground />
+      <CursorGlow />
+      <ScrollProgress />
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <main className="container">
@@ -393,14 +397,30 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
-    <section id="hero" className="hero-centered">
+    <section id="hero" className={`hero-centered${ready ? ' hero-ready' : ''}`}>
+      <div className="hero-glow-ring" aria-hidden="true" />
       <h1>{t('hero.title')}</h1>
       <p className="hero-subtitle">{t('hero.subtitle')}</p>
       <div className="hero-cta">
         <a href="#projects" className="btn btn-primary" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>{t('hero.ctaProjects')}</a>
         <a href="#contact" className="btn btn-secondary" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>{t('hero.ctaContact')}</a>
       </div>
+      <button
+        type="button"
+        className="hero-scroll-hint"
+        aria-label="Scroll"
+        onClick={() => scrollToSection('about')}
+      >
+        <span className="hero-scroll-line" />
+      </button>
     </section>
   );
 };
