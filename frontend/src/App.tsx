@@ -70,7 +70,7 @@ const TRANSLATIONS: Record<Language, any> = {
     projects: {
       title: 'Progetti',
       list: [
-        { title: "Task Manager SaaS", desc: "Applicazione web per la gestione dei task in team, con board Kanban, assegnazione attivita e notifiche in tempo reale. Autenticazione JWT e ruoli utente.", tags: ["React", "TypeScript", "Django REST", "PostgreSQL", "JWT"] },
+        { title: "TaskWave", desc: "Applicazione Kanban per team di sviluppo: workspace multipli, board drag-and-drop, assegnazione task, notifiche in tempo reale e piani Free/Pro/Business con Stripe.", tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"] },
         { title: "E-commerce Dashboard", desc: "Pannello di amministrazione per negozio online con analytics, gestione ordini, inventario prodotti e grafici di vendita interattivi.", tags: ["React", "Chart.js", "Node.js", "MongoDB", "Tailwind CSS"] },
         { title: "Sweet Lab — Luxury Bakery", desc: "Sito marketing multilingue (IT/EN/FR/ES) per una pasticceria di lusso milanese, con animazioni GSAP, scroll fluido Lenis e design premium curato nei dettagli.", tags: ["Next.js", "React", "Tailwind CSS", "next-intl", "GSAP", "Framer Motion"] },
         { title: "Weather App", desc: "Applicazione meteo con geolocalizzazione automatica, previsioni a 7 giorni, visualizzazioni animate e ricerca citta. Dati da OpenWeatherMap API.", tags: ["React", "TypeScript", "OpenWeatherMap API", "CSS Animations"] },
@@ -143,7 +143,7 @@ const TRANSLATIONS: Record<Language, any> = {
     projects: {
       title: 'Projects',
       list: [
-        { title: "Task Manager SaaS", desc: "Web application for team task management, featuring Kanban boards, task assignment, and real-time notifications. JWT authentication and user roles.", tags: ["React", "TypeScript", "Django REST", "PostgreSQL", "JWT"] },
+        { title: "TaskWave", desc: "Kanban web app for dev teams: multiple workspaces, drag-and-drop boards, task assignment, real-time notifications, and Free/Pro/Business plans with Stripe.", tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"] },
         { title: "E-commerce Dashboard", desc: "Admin panel for an online store with analytics, order management, product inventory, and interactive sales charts.", tags: ["React", "Chart.js", "Node.js", "MongoDB", "Tailwind CSS"] },
         { title: "Sweet Lab — Luxury Bakery", desc: "Multilingual marketing site (IT/EN/FR/ES) for a fictional luxury patisserie in Milan, featuring GSAP animations, Lenis smooth scrolling, and a premium, detail-driven design.", tags: ["Next.js", "React", "Tailwind CSS", "next-intl", "GSAP", "Framer Motion"] },
         { title: "Weather App", desc: "Weather application with automatic geolocation, 7-day forecasts, animated visualizations, and city search. Powered by OpenWeatherMap API.", tags: ["React", "TypeScript", "OpenWeatherMap API", "CSS Animations"] },
@@ -497,10 +497,10 @@ const Projects: React.FC = () => {
   const projects = t('projects.list');
 
   const githubLinks = [
-    "https://github.com/niccolopiccioli/taskflow-pro", "#", "https://github.com/niccolopiccioli/luxury-bakery", "#", "https://github.com/niccolopiccioli/ready-layout", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
+    "https://github.com/niccolopiccioli/taskwave", "https://github.com/niccolopiccioli/eshop-streetwear", "https://github.com/niccolopiccioli/luxury-bakery", "#", "https://github.com/niccolopiccioli/ready-layout", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
   ];
   const demoLinks = [
-    "https://taskflow-pro-murex.vercel.app", "#", "https://luxury-bakery.vercel.app", "#", "https://site-generator-eight.vercel.app", null, null
+    "https://taskwave-rust.vercel.app", "https://eshop-streetwear.vercel.app", "https://luxury-bakery.vercel.app", "#", "https://site-generator-eight.vercel.app", null, null
   ];
 
   const renderCard = (project: any, index: number) => (
