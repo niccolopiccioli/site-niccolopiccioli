@@ -71,7 +71,7 @@ const TRANSLATIONS: Record<Language, any> = {
       title: 'Progetti',
       list: [
         { title: "TaskWave", desc: "Applicazione Kanban per team di sviluppo: workspace multipli, board drag-and-drop, assegnazione task, notifiche in tempo reale e piani Free/Pro/Business con Stripe.", tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"] },
-        { title: "E-commerce Dashboard", desc: "Pannello di amministrazione per negozio online con analytics, gestione ordini, inventario prodotti e grafici di vendita interattivi.", tags: ["React", "Chart.js", "Node.js", "MongoDB", "Tailwind CSS"] },
+        { title: "E-commerce Dashboard", desc: "Pannello di amministrazione per negozio online con analytics, gestione ordini, inventario prodotti e grafici di vendita interattivi.", tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Tailwind CSS"] },
         { title: "Sweet Lab — Luxury Bakery", desc: "Sito marketing multilingue (IT/EN/FR/ES) per una pasticceria di lusso milanese, con animazioni GSAP, scroll fluido Lenis e design premium curato nei dettagli.", tags: ["Next.js", "React", "Tailwind CSS", "next-intl", "GSAP", "Framer Motion"] },
         { title: "Weather App", desc: "Applicazione meteo con geolocalizzazione automatica, previsioni a 7 giorni, visualizzazioni animate e ricerca citta. Dati da OpenWeatherMap API.", tags: ["React", "TypeScript", "OpenWeatherMap API", "CSS Animations"] },
         { title: "Site Generator", desc: "Tool web che consente di creare siti web statici personalizzati scegliendo template, colori e contenuti, con export HTML/CSS pronto al deploy.", tags: ["React", "Node.js", "Express", "HTML/CSS", "File System API"] },
@@ -144,7 +144,7 @@ const TRANSLATIONS: Record<Language, any> = {
       title: 'Projects',
       list: [
         { title: "TaskWave", desc: "Kanban web app for dev teams: multiple workspaces, drag-and-drop boards, task assignment, real-time notifications, and Free/Pro/Business plans with Stripe.", tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "Tailwind CSS"] },
-        { title: "E-commerce Dashboard", desc: "Admin panel for an online store with analytics, order management, product inventory, and interactive sales charts.", tags: ["React", "Chart.js", "Node.js", "MongoDB", "Tailwind CSS"] },
+        { title: "E-commerce Dashboard", desc: "Admin panel for an online store with analytics, order management, product inventory, and interactive sales charts.", tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Tailwind CSS"] },
         { title: "Sweet Lab — Luxury Bakery", desc: "Multilingual marketing site (IT/EN/FR/ES) for a fictional luxury patisserie in Milan, featuring GSAP animations, Lenis smooth scrolling, and a premium, detail-driven design.", tags: ["Next.js", "React", "Tailwind CSS", "next-intl", "GSAP", "Framer Motion"] },
         { title: "Weather App", desc: "Weather application with automatic geolocation, 7-day forecasts, animated visualizations, and city search. Powered by OpenWeatherMap API.", tags: ["React", "TypeScript", "OpenWeatherMap API", "CSS Animations"] },
         { title: "Site Generator", desc: "Web tool that allows creating personalized static websites by choosing templates, colors, and content, with ready-to-deploy HTML/CSS export.", tags: ["React", "Node.js", "Express", "HTML/CSS", "File System API"] },
@@ -497,10 +497,10 @@ const Projects: React.FC = () => {
   const projects = t('projects.list');
 
   const githubLinks = [
-    "https://github.com/niccolopiccioli/taskwave", "https://github.com/niccolopiccioli/eshop-streetwear", "https://github.com/niccolopiccioli/luxury-bakery", "#", "https://github.com/niccolopiccioli/ready-layout", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
+    "https://github.com/niccolopiccioli/taskwave", "https://github.com/niccolopiccioli/RewindDrop", "https://github.com/niccolopiccioli/luxury-bakery", "#", "https://github.com/niccolopiccioli/ready-layout", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
   ];
   const demoLinks = [
-    "https://taskwave-rust.vercel.app", "https://eshop-streetwear.vercel.app", "https://luxury-bakery.vercel.app", "#", "https://site-generator-eight.vercel.app", null, null
+    "https://taskwave-rust.vercel.app", "https://rewinddrop.vercel.app", "https://luxury-bakery.vercel.app", "#", "https://site-generator-eight.vercel.app", null, null
   ];
 
   const renderCard = (project: any, index: number) => (
