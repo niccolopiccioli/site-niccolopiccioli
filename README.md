@@ -1,73 +1,56 @@
-# Niccolò Piccioli - Personal Portfolio
+# site-niccolopiccioli
 
-A modern, high-performance personal portfolio website built with **React**, **TypeScript**, and **Vite**, hosted on **Firebase**. This project showcases my skills, experience, and projects with a focus on clean design and efficient architecture.
+Personal portfolio website. Built with **React**, **TypeScript**, and **Vite**, hosted on **Firebase Hosting**.
 
-## 🚀 Overview
+Migrated from a Django-backed SPA to a serverless static deployment for improved performance, reduced cost, and simplified infrastructure.
 
-The website is a serverless Single Page Application (SPA). It was recently migrated from a Django-backend architecture to a more efficient, cost-effective, and faster static deployment using Firebase Hosting.
+## Stack
 
-### Key Features
-- **Modern Tech Stack**: React 18, TypeScript, and Vite for a lightning-fast development experience.
-- **Serverless Contact Form**: Integrated with **EmailJS** to handle user inquiries directly from the client, eliminating the need for a dedicated backend server.
-- **Premium UI/UX**: Responsive design with smooth CSS animations and section transitions.
-- **Firebase Hosting**: Deployed on Google's global CDN with automatic SSL (HTTPS).
+| Layer | Technology |
+|-------|------------|
+| Frontend | React 18, TypeScript, Vite |
+| Styling | CSS Custom Properties, Flexbox, Grid |
+| Icons | react-icons |
+| Forms | EmailJS (serverless, client-side) |
+| Hosting | Firebase Hosting (CDN, HTTPS) |
 
-## 🛠️ Tech Stack
+## Structure
 
-- **Frontend**: React, TypeScript, Vite
-- **Styling**: Vanilla CSS (Custom properties, Flexbox/Grid)
-- **Icons**: React Icons
-- **Deployment**: Firebase Hosting
-- **Forms**: EmailJS (Serverless Email Integration)
-
-## 📁 Project Structure
-
-```text
-├── frontend/             # React application source code
-│   ├── src/              # Components and logic
-│   ├── public/           # Static assets
-│   ├── .env              # Environment variables (Keys, API IDs)
-│   └── vite.config.ts    # Vite configuration
-├── firebase.json         # Firebase Hosting configuration
-├── .firebaserc           # Firebase project associations
-└── README.md             # Project documentation
+```
+frontend/
+├── src/              # Components and application logic
+├── public/           # Static assets
+├── .env              # EmailJS credentials
+└── vite.config.ts    # Vite configuration
+firebase.json         # Firebase hosting rules
+.firebaserc           # Project association
 ```
 
-## ⚙️ Development & Deployment
+## Local Development
 
-### Local Development
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/niccolopiccioli/site-niccolopiccioli.git
-   ```
-2. Install dependencies:
-   ```bash
-   cd frontend
-   npm install
-   ```
-3. Create a `.env` file in the `frontend` directory with your EmailJS credentials:
-   ```env
-   VITE_EMAILJS_SERVICE_ID=your_service_id
-   VITE_EMAILJS_TEMPLATE_ID=your_template_id
-   VITE_EMAILJS_PUBLIC_KEY=your_public_key
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
+```bash
+git clone https://github.com/niccolopiccioli/site-niccolopiccioli.git
+cd frontend
+npm install
+```
 
-### Deployment to Firebase
-To deploy the latest version to Firebase Hosting:
-1. Build the production application:
-   ```bash
-   cd frontend
-   npm run build
-   ```
-2. Deploy using Firebase CLI:
-   ```bash
-   cd ..
-   firebase deploy
-   ```
+Create `frontend/.env`:
 
-## 📄 License
-This project is for personal showcase purposes. Contact [niccolopiccioli68@gmail.com](mailto:niccolopiccioli68@gmail.com) for more information.
+```env
+VITE_EMAILJS_SERVICE_ID=...
+VITE_EMAILJS_TEMPLATE_ID=...
+VITE_EMAILJS_PUBLIC_KEY=...
+```
+
+```bash
+npm run dev
+```
+
+## Deployment
+
+```bash
+cd frontend
+npm run build
+cd ..
+firebase deploy
+```
