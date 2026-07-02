@@ -500,7 +500,7 @@ const Projects: React.FC = () => {
     "https://github.com/niccolopiccioli/taskwave", "https://github.com/niccolopiccioli/RewindDrop", "https://github.com/niccolopiccioli/luxury-bakery", "#", "https://github.com/niccolopiccioli/ready-layout", "#", "https://github.com/niccolopiccioli/site-niccolopiccioli"
   ];
   const demoLinks = [
-    "https://taskwave-rust.vercel.app", "https://rewinddrop.vercel.app", "https://luxury-bakery.vercel.app", "#", "https://site-generator-eight.vercel.app", null, null
+    "https://taskwave-rust.vercel.app", "https://rewinddrop.vercel.app/it", "https://luxury-bakery.vercel.app", "#", "https://site-generator-eight.vercel.app", null, null
   ];
 
   const renderCard = (project: any, index: number) => (
