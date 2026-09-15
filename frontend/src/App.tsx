@@ -17,7 +17,6 @@ import { useScrollY } from './hooks/useScrollY';
 import { initSmoothScroll } from './utils/scroll';
 import { useMagnetic } from './hooks/useMagnetic';
 import ToTop from './components/ToTop';
-import ScrollDebug from './components/ScrollDebug';
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -60,7 +59,6 @@ const App: React.FC = () => {
       </main>
       <Footer />
       <ToTop />
-      <ScrollDebug />
     </LanguageProvider>
   );
 };
