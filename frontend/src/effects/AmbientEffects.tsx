@@ -20,6 +20,7 @@ export const AmbientBackground: React.FC = () => {
 
   return (
     <div className="ambient-layer" aria-hidden="true">
+      <div className="ambient-aurora" />
       <div className="ambient-orb ambient-orb-1" />
       <div className="ambient-orb ambient-orb-2" />
       <div className="ambient-orb ambient-orb-3" />
@@ -35,13 +36,31 @@ export const CursorGlow: React.FC = () => {
   useEffect(() => {
     if (reduced) return;
 
+    let tx = window.innerWidth / 2;
+    let ty = window.innerHeight / 2;
+    let x = tx;
+    let y = ty;
+    let raf = 0;
+
     const onMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--cursor-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--cursor-y', `${e.clientY}px`);
+      tx = e.clientX;
+      ty = e.clientY;
+    };
+
+    const loop = () => {
+      x += (tx - x) * 0.16;
+      y += (ty - y) * 0.16;
+      document.documentElement.style.setProperty('--cursor-x', `${x.toFixed(1)}px`);
+      document.documentElement.style.setProperty('--cursor-y', `${y.toFixed(1)}px`);
+      raf = requestAnimationFrame(loop);
     };
 
     window.addEventListener('mousemove', onMove, { passive: true });
-    return () => window.removeEventListener('mousemove', onMove);
+    raf = requestAnimationFrame(loop);
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      cancelAnimationFrame(raf);
+    };
   }, [reduced]);
 
   if (reduced) return null;
